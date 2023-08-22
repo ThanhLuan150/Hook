@@ -5,6 +5,10 @@ import List from "./components/List";
 import Input from "./components/input";
 import Mounted from "./components/Mounted";
 import Content from "./components/Content";
+import Clock from "./components/clock";
+import Click from "./components/click";
+import UpdateAvatar from "./components/avatar";
+import UseRef from "./components/UseRef";
 function App() {
  
   return (
@@ -13,8 +17,12 @@ function App() {
        <UserInfor/>
         <List/>
         <Input/> */}
-        <Mounted/>
-        <Content/>
+        {/* <Mounted/> */}
+        {/* <Content/> */}
+        {/* <Clock/>
+        <Click/> */}
+        {/* <UpdateAvatar/> */}
+        <UseRef/>
     </div>
   );
 }

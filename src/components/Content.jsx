@@ -8,8 +8,6 @@ import { useEffect, useState } from "react";
  //3.useEffect(callback, [deps]) nó sẽ hoạt động như thế nào.
  //sizeEffect
 const Content = () =>{
-    const tabs =['posts','comments']
-    const [title, setTitle ] =useState('');
     const [posts, setPosts] =useState([]);
     const [showGoToTop ,setShowGoToTop] =useState(false);
     useEffect(()=>{
@@ -30,12 +28,16 @@ const Content = () =>{
             }
         }
             window.addEventListener('scroll',handleScroll)
+
+            //cleanup function nó sẽ dọn dẹp bộ nhớ của ta khi unmount tránh rò rõ rĩ bộ nhớ hoặc khi unmount nó vẫn chạy chức năng đó
+            return ()=>{
+                window.addEventListener('scroll',handleScroll)
+            }
     },[])
+    console.log(showGoToTop)
     return(
     <>
     <div>
-        <input  value={title} onChange={e =>setTitle(e.target.value)}>
-        </input>
         {posts.map(post =>(
             <div >{post.title}</div>
                 
@@ -43,8 +45,8 @@ const Content = () =>{
         {showGoToTop && (
             <button style={{
                  position:'fixed',
-                right:'20',
-                bottom:'20'
+                 right:'20px',
+                 bottom:'20px',
     
             }}>Go to Top</button>
         )}
